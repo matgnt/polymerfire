@@ -286,6 +286,10 @@ be a problem.
         },
 
         _computeAuth: function(app) {
+          if(!this.app) {
+            this.fire('error', 'No Firebase app set for authentication!');
+            return null;
+          }
           return this.app.auth();
         },
 
